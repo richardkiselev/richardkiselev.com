@@ -16,21 +16,13 @@
       font-style: italic;
     }
   </style>
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script>
-jQuery(document).ready(function () {
-newTab();
+  <script>
+    $('a.yourlink').click(function(e) {
+    e.preventDefault();
+    window.open('http://google.com');
+    window.open('http://bing.com');
 });
-
-function newTab() {
- var form = document.createElement("form");
- form.method = "GET";
- form.action = "http://www.google.com";
- form.target = "_blank";
- document.body.appendChild(form);
- form.submit();
-}
-</script>
+  </script>
 </head>
 
 <body>
@@ -38,7 +30,8 @@ function newTab() {
   <h1>packager</h1>
   <a href="index.html"><h3>back</h3></a>
 
-<p>this page opens...</p>
+<a href="#" class="yourlink">test</a>
+<p>this site opens...</p>
 <ol>
   <li>google docs</li>
   <li>google classroom</li>
