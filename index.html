@@ -93,25 +93,30 @@ p {
 a {
   color: var(--accent);
   text-decoration: none;
-  position: relative;
+  position: relative; /* fixes the full-width line bug */
   transition: color 0.3s ease;
+  display: inline-block; /* ensures the underline matches the text width */
 }
 
 a::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -3px;
+  bottom: 0; /* directly under text */
   width: 0%;
   height: 2px;
   background: var(--accent);
-  transition: width 0.3s ease;
+  border-radius: 1px; /* smooth edges */
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1); /* smooth, springy animation */
 }
 
 a:hover::after {
-  width: 100%;
+  width: 100%; /* grows only under the text */
 }
 
+a:hover {
+  color: #38bdf8cc; /* subtle glow effect on hover */
+}
 /* Buttons */
 .button {
   display: inline-block;
