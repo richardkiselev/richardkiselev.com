@@ -6,7 +6,162 @@
   <meta name="viewport" content="width=device-width">
   <title>The SPOT System</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
- 
+  <style>
+/* ===== RNK Global Style ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg: #0a0f1c;
+  --card: #111827;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.15);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top left, #111827, #0a0f1c 60%);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 60px 20px;
+  overflow-x: hidden;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Smooth fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 40px 0 15px 0;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+p {
+  margin-bottom: 15px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border: 1px solid var(--accent-soft);
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative; /* fixes the full-width line bug */
+  transition: color 0.3s ease;
+  display: inline-block; /* ensures the underline matches the text width */
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* directly under text */
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px; /* smooth edges */
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1); /* smooth, springy animation */
+}
+
+a:hover::after {
+  width: 100%; /* grows only under the text */
+}
+
+a:hover {
+  color: #38bdf8cc; /* subtle glow effect on hover */
+}
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(56,189,248,0.4);
+}
+
+/* Lists */
+ul {
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+/* Subtle glowing divider */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  margin: 40px 0;
+}
+
+/* Footer */
+footer {
+  margin-top: 60px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+  opacity: 0.6;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+</style>
 </head> 
   
 <body>
